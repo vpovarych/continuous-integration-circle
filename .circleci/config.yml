@@ -2,9 +2,12 @@ version: 2.2
 executors:
   ci-executor:
     docker:
-      - image: githubtraining/ci-custom
+      - image: githubtraining/ci-custom:latest
 jobs:
   build:
     executor: ci-executor
     steps:
       - checkout
+      - run:
+          name: build jekyll
+          command: bundle exec jekyll build
