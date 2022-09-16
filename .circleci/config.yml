@@ -8,6 +8,10 @@ jobs:
     executor: ci-executor
     steps:
       - checkout
+      
+      - run:
+          name: build depend-s
+          command: bundle install
       - run:
           name: build jekyll
           command: bundle exec jekyll build
